@@ -1,4 +1,4 @@
-# Libraryt
+# Library
 
 ## Description
 
