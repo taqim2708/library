@@ -30,12 +30,17 @@ python manage.py migrate
 python manage.py load_books
 ```
 
-7. Start the development server:
+7. Create superuser:
+```bash
+python manage.py createsuperuser
+```
+
+8. Start the development server:
 ```bash
 python manage.py runserver
 ```
 
-8. Open your browser and navigate to http://127.0.0.1:8000/api/books/
+8. Open your browser and navigate to http://127.0.0.1:8000/admin/
 
 ## Test
 To run all test
