@@ -1,24 +1,36 @@
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
-
+from django.contrib.auth.models import User
+from rest_framework_simplejwt.tokens import AccessToken
 from .models import Book
 
 
-class BookTests(APITestCase):
+class BookAPITest(APITestCase):
     def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.token = AccessToken.for_user(self.user)
+        self.api_authentication()
         self.valid_data = {
-            "isbn": "978-150-51423-879-1",
-            "title": "The Divine Comedy",
-            "author": "Leo Tolstoy",
-            "year_published": 1903,
-            "genre": "Poetry",
+            'isbn': '978-1234567890',
+            'title': 'Test Book',
+            'author': 'Test Author',
+            'year_published': 2023,
+            'genre': 'Test Genre'
         }
 
-    def test_create_book(self):
-        url = reverse("book-list-create")
-        response = self.client.post(url, self.valid_data, format="json")
+    def api_authentication(self):
+        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {self.token}')
+
+    def test_create_book_authenticated(self):
+        url = '/api/books/'
+        response = self.client.post(url, self.valid_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_list_books_authenticated(self):
+        url = '/api/books/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_books(self):
         url = reverse("book-list-create")
