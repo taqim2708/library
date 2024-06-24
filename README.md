@@ -36,3 +36,9 @@ python manage.py runserver
 ```
 
 8. Open your browser and navigate to `http://localhost:8000/`.
+
+## Test
+To run all test
+```bash
+python manage.py test
+```
