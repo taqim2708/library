@@ -1,8 +1,8 @@
-# My Django Project
+# Libraryt
 
 ## Description
 
-My Django Project is a web application that allows users to manage books in a library. It provides CRUD operations for books, user authentication, and a RESTful API for external access.
+Library is a web application that allows users to manage books in a library. It provides CRUD operations for books, user authentication, and a RESTful API for external access.
 
 ## Installation
 
