@@ -25,10 +25,14 @@ pip install -r requirements.txt
 ```bash
 python manage.py migrate
 ```
+6. Initialize database from csv file
+```bash
+python manage.py load_books
+```
 
-6. Start the development server:
+7. Start the development server:
 ```bash
 python manage.py runserver
 ```
 
-7. Open your browser and navigate to `http://localhost:8000/`.
+8. Open your browser and navigate to `http://localhost:8000/`.
