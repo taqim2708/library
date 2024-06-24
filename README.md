@@ -35,7 +35,7 @@ python manage.py load_books
 python manage.py runserver
 ```
 
-8. Open your browser and navigate to `http://localhost:8000/`.
+8. Open your browser and navigate to http://127.0.0.1:8000/api/books/
 
 ## Test
 To run all test
